@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Hello Chelyabinsk</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="select_user">Выберите пользователя</string>
+    <string name="company">Company</string>
+    <string name="address">Address</string>
+</resources>
