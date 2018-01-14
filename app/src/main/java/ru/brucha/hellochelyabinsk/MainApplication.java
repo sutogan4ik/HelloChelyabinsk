@@ -6,7 +6,9 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import ru.brucha.hellochelyabinsk.di.component.AppComponent;
 import ru.brucha.hellochelyabinsk.di.component.DaggerAppComponent;
+import ru.brucha.hellochelyabinsk.di.component.FragmentComponent;
 import ru.brucha.hellochelyabinsk.di.module.ApiModule;
+import ru.brucha.hellochelyabinsk.di.module.InteractorsModule;
 
 /**
  * Created by prog on 28.12.2017.
@@ -17,6 +19,10 @@ public class MainApplication extends Application {
     public static AppComponent getComponent(){
         return component;
     }
+    private static FragmentComponent fragmentComponent;
+    public static FragmentComponent getFragmentComponent(){
+        return fragmentComponent;
+    }
 
     @Override
     public void onCreate() {
@@ -26,6 +32,11 @@ public class MainApplication extends Application {
         Realm.setDefaultConfiguration(realmConfig);
 
         component = createComponent();
+        fragmentComponent = createFragmentComponent();
+    }
+
+    private FragmentComponent createFragmentComponent() {
+        return component.plus(new InteractorsModule());
     }
 
     private AppComponent createComponent() {

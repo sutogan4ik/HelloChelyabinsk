@@ -61,7 +61,7 @@ public class UserListFragment extends MvpAppCompatFragment implements UserListVi
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        MainApplication.getComponent().inject(this);
+        MainApplication.getFragmentComponent().inject(this);
         super.onCreate(savedInstanceState);
         adapter = new UserListAdapter(this);
     }
